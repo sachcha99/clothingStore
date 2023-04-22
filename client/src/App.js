@@ -21,6 +21,7 @@ import AddNewProduct from "./pages/AddNewProduct";
 import AdminDashboard from "./pages/AdminDashboard";
 import ShoppingCart from "./pages/ShoppingCart";
 import productReducer from "./redux/product";
+import Products from "./pages/Products";
 
 
 const store = configureStore({
@@ -44,6 +45,7 @@ function App() {
               <Route path='/adminDashboard' exact element={<AdminDashboard />} />
               <Route path='/addProduct' exact element={<AddNewProduct />} />
               <Route path='/cart' exact element={<ShoppingCart />} />
+              <Route path='/products' exact element={<Products />} />
 
             </Route>
             <Route path='/' exact element={<Home />} />

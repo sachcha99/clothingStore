@@ -5,9 +5,8 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import Slider from '../components/Slider'
 import styled from "styled-components";
-import WomenCategoryList from '../components/categoryList/WomenCategoryList'
-import MenCategoryList from '../components/categoryList/MenCategoryList'
-import ChildrenCategoryList from '../components/categoryList/ChildrenCategoryList'
+import ProductList from '../components/productList/ProductList'
+
 
 const Container = styled.div`
   width: 100vw;
@@ -18,14 +17,12 @@ const Container = styled.div`
   z-index: -1;
 `;
 
-const CategoriesList = () => {
+const Products = () => {
   return (
     <>
       <Container>
         <Navbar />
-        <WomenCategoryList/>   
-        <MenCategoryList/>   
-        <ChildrenCategoryList/>   
+        <ProductList/>   
         <Footer />
       </Container>
 
@@ -33,4 +30,4 @@ const CategoriesList = () => {
   )
 }
 
-export default CategoriesList
+export default Products
