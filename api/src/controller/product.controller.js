@@ -94,11 +94,35 @@ const searchProduct = async (req, res) => {
     })
 };
 
+//get Products By status
+const getProductByStatus = async (req, res) => {
+    await Product.find({ status: req.params.status })
+        .then((data) => {
+            res.status(200).send(data);
+        })
+        .catch(error => {
+            res.send(error);
+        });
+}
+
+//get Products By status
+const getProductByCategory = async (req, res) => {
+    await Product.find({ category: req.params.category })
+        .then((data) => {
+            res.status(200).send(data);
+        })
+        .catch(error => {
+            res.send(error);
+        });
+}
+
 module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
     getAllProducts,
     getProductById,
-    searchProduct
+    searchProduct,
+    getProductByStatus,
+    getProductByCategory
 }

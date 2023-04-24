@@ -22,12 +22,14 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ShoppingCart from "./pages/ShoppingCart";
 import productReducer from "./redux/product";
 import Products from "./pages/Products";
+import cartReducer from "./redux/cart"
 
 
 const store = configureStore({
   reducer: {
     user: userReducer,
-    product: productReducer
+    product: productReducer,
+    cart: cartReducer
   },
 });
 
