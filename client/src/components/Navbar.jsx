@@ -131,6 +131,7 @@ const Navbar = () => {
   const token = localStorage.getItem("token") || null;
   const userInfoDetails = JSON.parse(localStorage.getItem("userInfo"));
   const dispatch = useDispatch();
+  const cartQuantity = useSelector((state) => state.cart.totalItems)
 
   const logout = (e) => {
     localStorage.removeItem("token");
@@ -180,7 +181,7 @@ const Navbar = () => {
               {userInfoDetails && userInfoDetails.userType === "buyer" &&
                 <Link to="/cart">
                   <MenuItm>
-                    <Badge badgeContent={quantity} color="primary">
+                    <Badge badgeContent={cartQuantity} color="primary">
                       <ShoppingCartOutlined />
                     </Badge>
                   </MenuItm>

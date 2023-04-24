@@ -5,6 +5,8 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { addItemToCart } from "../../redux/cart";
+import { useDispatch } from "react-redux";
 
 const Info = styled.div`
   opacity: 0;
@@ -102,6 +104,13 @@ const ButtonContainer = styled.div`
 `;
 
 const Product = ({ item }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    console.log("click")
+    dispatch(addItemToCart({ 'id': item._id}));
+  };
+
   return (
     <OuterContainer>
       <Container>
@@ -109,7 +118,7 @@ const Product = ({ item }) => {
         <Image src={item.image} />
         <Info>
           <Icon>
-            <ShoppingCartOutlined />
+            <ShoppingCartOutlined onClick={() => handleAddToCart(item)} />
           </Icon>
           <Icon>
             <Link to={`/product/${item._id}`}>

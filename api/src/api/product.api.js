@@ -9,5 +9,7 @@ module.exports = function () {
     router.put('/update/:id', ProductController.updateProduct);
     router.delete('/delete/:id', ProductController.deleteProduct);
     router.get('/search/:name', ProductController.searchProduct);
+    router.get('/status/:status', ProductController.getProductByStatus);
+    router.get('/category/:category', ProductController.getProductByCategory);
     return router;
 }
