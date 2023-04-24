@@ -128,7 +128,7 @@ const Navbar = () => {
 
 
   const quantity = 10;
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token") || null;
   const userInfoDetails = JSON.parse(localStorage.getItem("userInfo"));
   const dispatch = useDispatch();
 
@@ -152,7 +152,9 @@ const Navbar = () => {
           <Link style={{ textDecoration: 'none' }} to="/">
             <MenuItm>HOME</MenuItm>
           </Link>
-          <MenuItm>PRODUCTS</MenuItm>
+          <Link style={{ textDecoration: 'none' }} to="/products">
+            <MenuItm>PRODUCTS</MenuItm>
+          </Link>
           <Link style={{ textDecoration: 'none' }} to="/categories">
             <MenuItm>CATEGORIES</MenuItm>
           </Link>
@@ -175,7 +177,7 @@ const Navbar = () => {
             </>}
           {token &&
             <>
-              {userInfoDetails.userType === "buyer" &&
+              {userInfoDetails && userInfoDetails.userType === "buyer" &&
                 <Link to="/cart">
                   <MenuItm>
                     <Badge badgeContent={quantity} color="primary">
@@ -205,13 +207,13 @@ const Navbar = () => {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {userInfoDetails.userType === "seller" &&
+                  {userInfoDetails && userInfoDetails.userType === "seller" &&
                     <Link style={{ textDecoration: 'none' }} to="/sellerDashboard">
                       <MenuItem >
                         <Typography textAlign="center">Seller Dashboard</Typography>
                       </MenuItem>
                     </Link>}
-                  {userInfoDetails.userType === "admin" &&
+                  {userInfoDetails && userInfoDetails.userType === "admin" &&
                     <Link style={{ textDecoration: 'none' }} to="/adminDashboard">
                       <MenuItem >
                         <Typography textAlign="center">Admin Dashboard</Typography>
